@@ -1,0 +1,46 @@
+body{
+    width: 100%;
+    overflow:hidden;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-boxshadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: none;
+    position: absolute;
+   
+
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: none;
+    
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-boxshadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(99, 98, 98);
+   
+}
+
+button>span :hover{
+    /* border: 1px solid red; */
+    cursor: pointer;
+}
+#item .ant-select .ant-select-single .ant-select-show-arrow{
+	background-color: white !important;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+	background-color: grey ;
+	border-radius: 8px ;
+}
+#uline:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+.ant-tooltip-inner {
+    min-width: 1200px !important;
+    min-height: 370px !important;
+    padding: 6px 8px;
+    color: #080808;
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255);
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+    /* box-shadow: none !important; */
+  }
+  img {
+    vertical-align: bottom !important;
+    border-style: none;
+}
+.ant-popover-inner{
+  border-radius: 5px;;
+}
+/* .ant-popover-content{
+  margin-top: 10px;
+} */

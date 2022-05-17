@@ -1,0 +1,12 @@
+.img-wrapper {
+    overflow: hidden;
+  }
+  .hover-zoom img:hover {
+    transform: scale(1.25);
+  }
+  .ant-cascader-menu {
+    height:370px ;
+  }
+  #drop{
+    height:100% !important;
+  }
