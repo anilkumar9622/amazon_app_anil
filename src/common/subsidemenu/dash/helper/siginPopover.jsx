@@ -103,7 +103,7 @@ export default function SigninPopover() {
           title={text2}>
           <button style={{ border: 'none', background: "none", width: '45%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
             <a id='over' href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, {decoded.useremail.name} </span>
+              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, Signin </span>
               <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white' }}> Account & Lists</span></a>
           </button>
         </Popover>
