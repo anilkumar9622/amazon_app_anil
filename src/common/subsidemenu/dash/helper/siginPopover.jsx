@@ -7,9 +7,20 @@ import jwt_decode from 'jwt-decode';
 
 export default function SigninPopover() {
 
+  const[user, setUser] = useState('Signin');
+  const username = () => {
+     setUser(user(decoded.useremail.name))
+  } 
+
   var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyZW1haWwiOnsiX2lkIjoiNjI2YjZmOTlhZmRmNjZiYTliMzU1OTRmIiwibmFtZSI6ImthcmFuIiwicGhvbmUiOiI3NjY3ODY4MjcwIiwiZW1haWwiOiJha3VtYXI3QGtsb3VkcmFjLmNvbSIsInBhc3N3b3JkIjoiMTIzNDU2IiwiX192IjowfSwiaWF0IjoxNjUyNDIyNDI5fQ.0bnwWRaTXvVpeMvCMR4g7aURCZA5dTAO9KWN9wP4pdI";
   var decoded = jwt_decode(token);
   // console.log('token>>>>', decoded);
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+    console.log('>>>>>>>>>>>>',logout)
+  }
 
   const text1 = (
     <div style={{ width: "100%", display: "grid", marginTop: '10px' }}>
@@ -64,6 +75,9 @@ export default function SigninPopover() {
             <a style={{ color: "#444" }} href='#'>Your Amazon Business Account</a>
             <a style={{ color: "#444" }} href='#'>Your Seller Account</a>
             <a style={{ color: "#444" }} href='#'>Manage Your Content and Devices</a>
+            <div>
+   <a href="#" onClick={logout}>LOGOUT</a>
+</div>
           </div>
         </div>
       </div>
@@ -76,7 +90,7 @@ export default function SigninPopover() {
       {/* <svg xmlns="http://www.w3.org/2000/svg" fill="blue" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" /></svg> */}
 
       <Popover placement="bottomRight"
-        defaultVisible={false}
+        
         style={{ position: 'relative', top: "-10px" }}
         trigger='hover'
         title={text1}
@@ -85,11 +99,11 @@ export default function SigninPopover() {
         <Popover placement="bottom"
           style={{ position: 'relative', top: "0px" }}
           trigger="focus"
-          //  destroyTooltipOnHide = {}
+          // defaultVisible={true}
           title={text2}>
           <button style={{ border: 'none', background: "none", width: '45%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
             <a id='over' href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, {decoded.useremail.name } </span>
+              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, {decoded.useremail.name} </span>
               <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white' }}> Account & Lists</span></a>
           </button>
         </Popover>

@@ -39,7 +39,7 @@ const initialState = {
   }
   
   
-  function cart(state = initialState, action) {
+ export  const cart=(state = initialState, action)=> {
     const { type, payload } = action;
     console.log("OOOOOOOOOOOOOOOOOOOOOO",type, payload);
     switch (type) {
@@ -78,21 +78,7 @@ const initialState = {
           }
   // -------------------------------------------------------
   //  --------DELETE TO CART -------------------------
-        case DELETE_CART_ITEMS:
-          return {
-                  loading : false,
-                  items : payload
-        } 
-        case DELETE_CART_ITEMS_SUCCESS:
-           return {
-                   loading : true,
-                   items : payload
-        } 
-        case DELETE_CART_ITEMS_FAIL:
-           return {
-                   loading : false,
-                   items : payload
-        } 
+        
       //-------------------------------
       //-------quantity of cart------------
       case QUANTITY_CART_ITEMS:
@@ -114,6 +100,42 @@ const initialState = {
         return state
 }
         
+
   }
 
-export default cart
+
+
+
+
+const deletestate = {
+        loading : true,
+       delete : []
+  }
+  
+ 
+ export const deleteitems=(state = deletestate, action)=> {
+        const { type, payload } = action;
+        console.log("OOOOOOOOOOOOOOOOOOOOOO",type, payload);
+        switch (type) {
+          // GET ALL CART ITEMS
+          case DELETE_CART_ITEMS:
+                return {
+                        loading : false,
+                        delete : payload
+              } 
+              case DELETE_CART_ITEMS_SUCCESS:
+                 return {
+                         loading : true,
+                        delete : payload
+              } 
+              case DELETE_CART_ITEMS_FAIL:
+                 return {
+                         loading : false,
+                         delete : payload
+              } 
+              default:
+        return state
+}
+        
+
+  }

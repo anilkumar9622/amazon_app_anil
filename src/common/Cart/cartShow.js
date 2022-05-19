@@ -24,7 +24,7 @@ export default function Cardshow() {
   },[])
  
 const dispatch = useDispatch();
-const { items }  = useSelector((state)=> state.Cart);
+const { items }  = useSelector((state)=> state.cart);
 
 
   useEffect( () => {
@@ -134,7 +134,7 @@ console.log('>>>>>>',Option);
         <CheckCircleFilled style={{color:'green'}}/> Your order is eligible for FREE Delivery. Select this option at checkout. Details</p></div>
         <div style={{  fontSize:'18px' }}>Subtotal ({(items?.length)} items): <b>₹{totalAmount}.00</b></div>
         <div style={{margin:'0px 50px 0px 0px', }}> <Checkbox onChange={onChange}>This order contains a gift</Checkbox></div>
-        <Button href='https://rzp.io/l/i1kL91x' style={{ fontWeight: '500', width: '260px', height: '38px', borderRadius: '9px', background: '#face2f', margin: '20px 0px 0px 0px' }}>Proceed to Buy</Button>
+        <Button href='https://rzp.io/i/Y8wOaiG7c' style={{ fontWeight: '500', width: '260px', height: '38px', borderRadius: '9px', background: '#face2f', margin: '20px 0px 0px 0px' }}>Proceed to Buy</Button>
         <div style={{border:'1px solid #ddd', borderRadius:'8px', width:'260px', height:'50px', margin:'30px 0px 20px 0px', alignItems:'center'}}>
         <p style={{padding:'10px 40px'}}>EMI Available</p>
      </div>         

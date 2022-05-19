@@ -66,10 +66,11 @@ console.log(data1, data2, data3)
   return (
     <>
       <HeaderMain />
-      <div  id='style-1' style={{ height: '100vh', width: '100%', background: '#ececec', overflowY: 'scroll', marginRight: '10px' }}>
-          <Header />
+      
+      <div  id='style-1' style={{ height: '94vh', width: '100%', background: '#ececec', overflowY: 'scroll', marginRight: '10px' }}>
+      <Header />
 
-        <div style={{ position: 'relative', height: '2000px' }}>
+        <div style={{ position: 'relative', height: '2700px', width:'100%' }}>
           <Carousel1 />
 
           <div className="site-card-wrapper" style={{ position: 'absolute', padding: '250px 20px', height: '100vh', display: 'flex', flexDirection: 'row' }}>
@@ -111,7 +112,7 @@ console.log(data1, data2, data3)
             {/* <----------------------> */}
             <div style={{ display: 'flex', flexDirection: 'row', gap: "0px", justifySelf: 'self-end', gap: '' }}>
               {data2.map((v, id) => {
-                if (id > 0)
+                if (id < 2)
                   return (
                     <>
                       <Card bordered={false} style={{
@@ -241,8 +242,34 @@ console.log(data1, data2, data3)
                 </div>
                 <Button onClick={slideRight2} style={{border:'2px solid black', opacity: '0.5', backgroundColor: 'white', minHeight: '104px', minWidth: '47px', cursor: 'pointer', right: '0', cursor: 'pointer', position: 'absolute', margin: '130px 20px',fontSize: '20px', color:'black', fontWeight:'500' }}>
                   <RightOutlined style={{ fontSize: '22px', color:'black', fontWeight:'700' }} /></Button>
-              </div>
+              </div>            
+              <div style={{margin:'20px -800px'}}><img src='https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg' alt='img' /></div>
+             
+              <div style={{ display: 'flex', gap: "333px", justifySelf: '',margin:'10px -640px'}}>
+              {data2.map((v, id) => {
+                if (id > 2)
+                  return (
+                    <>
+                    <div style={{gap:'20px', margin:'0px 20px 0px -330px '}}>
+                      <Card bordered={false} style={{
+                        display: 'flex',
+                        height: '420px', width: '307px', marginTop: '0px',
+                        margin:'0px 0px', gap: '20px', justifyContent: 'space-between', 
+                      }}  >
+
+                        <h2 style={{ fontWeight: '660', fontSize: '20px' }}>{v.title}</h2>
+                        <div style={{ display: 'flex', flexDirection: 'row', height: '', padding: '0px', gap: '10px' }}>
+                          <div style={{ width: '100%', height: '100%', margin: '', display: 'flex', flexDirection: 'row' }} >
+                            <img style={{ width: '100%', height: '250px', maxHeight: '100%', }} onClick={()=>{navi('/addcart',{state: v})}}
+                             src={v.img} alt="img" />
+                          </div>
+                        </div>
+                        <div style={{ marginTop: '30px', color: 'blue' }}> <a href='' style={{ color: 'blue' }} >See all upcoming offers</a></div>
+                      </Card></div>
+                    </>)
+              })}
             </div>
+             </div>
           </div>
         </div>
         <div style={{ position: '' }}>

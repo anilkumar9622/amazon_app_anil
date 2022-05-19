@@ -44,7 +44,7 @@ var handleChange = (value) => {
 //   dispatch(quantityCartItems(value),{state:value})
 
 }
-    
+
   return (
    <>
    
@@ -158,8 +158,9 @@ var handleChange = (value) => {
                 </div></div>
 
    </>
-  )
+  ) 
 }
+
 //   await axios.post("https://mongodb-amazon.herokuapp.com/addCart", {"img": n4 , "title": n1, "disc1": n2}) 
 //        .then(response => {
 //            console.log(response);

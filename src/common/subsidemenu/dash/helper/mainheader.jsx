@@ -17,16 +17,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import Popover1 from './popover';
 // import CardView from '../../../Cart/cartView';
 import { fetchCartItems } from '../../../Redux/cartReducerCumActions';
+import ModalView from './popmodal';
 export default function Mainheader() {
     
 
-  
-
-
     const [toggle, settoggle] = useState(null)
+    const [toggle2, settoggle2] = useState(null)
+
     const [cartValue, setcartValue] = useState(0)
   
-    const { items }  = useSelector((state)=> state.Cart);
+    const { items }  = useSelector((state)=> state.cart);
     const dispatch = useDispatch();
     useEffect(() => {
           dispatch(fetchCartItems())
@@ -237,6 +237,7 @@ export default function Mainheader() {
         
         {/* <button onClick={() => { settoggle(!toggle) }}>popover</button> */}
                       <Popover1 toggle={toggle} />
+                      <ModalView toggle2 = {toggle2}/>
                       {/* <LanguagePopover toggle={toggle} /> */}
         
             <div style={{
@@ -252,7 +253,7 @@ export default function Mainheader() {
                             </a>
                     </div>
                     <div  style={{ width: '65%', height: '100%', color: 'black', color: 'white', display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column' }}>
-                        <a  class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '80%',gap:'-30px' }}>
+                        <a onClick={() => { settoggle2(!toggle2) }} class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '80%',gap:'-30px' }}>
                             <span  style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello</span>
                             <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop: '-1px' }}><EnvironmentOutlined /> Select your address</span>
                         </a>
@@ -282,19 +283,19 @@ export default function Mainheader() {
                     </div>
                 </div>
 
-                <div style={{ width: '30%', display: 'flex', paddingLeft: '60px' }}>
+                <div style={{ width: '30%', display: 'flex', paddingLeft: '50px' }}>
 
                     <LanguagePopover onMouseover={() => { settoggle(!toggle) }}/>
                     <SigninPopover />
 
-                    <div style={{ width: '20%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
+                    <div style={{ width: '20%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center',  }}>
                         <a href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-                            <span style={{ fontSize: '14px', color: 'white' }}>return &
-                                <span style={{ fontFamily: 'inherit', fontSize: '14px', color: 'white', fontWeight: '750' }}> Orders</span></span></a>
+                            <span style={{ fontSize: '14px', color: 'white' }}>return &</span>
+                                <span style={{ fontFamily: 'inherit', fontSize: '14px', color: 'white', fontWeight: '750' }}> Orders</span></a>
                     </div>
                     <div style={{ width: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
                         <a href="./cartShow" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', flexDirection: 'column', height: '85%', width: '80%' }}>
-                            <div  style={{ position: 'absolute', bottom: '35%' }}><h2 style={{ color: 'orange', fontSize: '1.6vw', margin: '2px 5px 0px 0px' }}>{items?.length }</h2></div>
+                            <div  style={{ position: 'absolute', bottom: '35%' }}><h2 style={{ color: 'orange', fontSize: '1.5vw', margin: '2px 5px 0px 0px' }}>{items?.length }</h2></div>
                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 25 24" fill="white" style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '1.8vw', transform:'rotateY(180deg)', marginRight:'10px'}} ><path d="M10 
     19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z" />
                             </svg>

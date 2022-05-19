@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom';
 import './signin.css'
-// import AmazonLogo from '../../images/am.jpeg'
+import { username } from '../../common/subsidemenu/dash/helper/siginPopover'
 import Input from '../Signup/custominput';
 
 export default function SignIn2() {

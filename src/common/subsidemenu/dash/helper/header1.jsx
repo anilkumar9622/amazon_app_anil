@@ -41,7 +41,7 @@ export default function Header1() {
                     </a>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <a href="./electronics" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Electronics
                     </a>
                 </div><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>

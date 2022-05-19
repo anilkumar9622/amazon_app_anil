@@ -1,26 +1,28 @@
 
-// import React, { useEffect, useState } from 'react'
-// import PopOver from './popover'
+import React, { useEffect, useState } from 'react'
+import PopOver from './popover2'
 
 
-// export default function ModalView(props) {
-//    console.log(props);
-//    const [showModal, setshowModal] = useState(false)
+export default function ModalView(props) {
+   console.log(props);
+   const [showModal, setshowModal] = useState(false)
 
-//    useEffect(() => {
-//       props.toggle != null && setshowModal(!showModal)
-//    }, [props.toggle])
+   useEffect(() => {
+      props.toggle2 != null && setshowModal(!showModal)
+   }, [props.toggle2])
 
 
 
-//    return (
-//       <>
-//          {showModal && (<PopOver showModal={showModal} setshowModal={setshowModal}>
+   return (
+      <>
+         {showModal && (<PopOver showModal={showModal} setshowModal={setshowModal}>
 
-          
-//          </PopOver >
-//          )
-//          }
-//       </>
-//    )
-// }
+          <div>
+              <div style={{}}></div>
+          </div>
+         </PopOver >
+         )
+         }
+      </>
+   )
+}

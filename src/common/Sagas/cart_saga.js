@@ -9,6 +9,7 @@ import {FETCH_CART_ITEMS,fetchCartItemsFail,fetchCartItemsSuccess,fetchCartItems
 function* fetchCartItemsList() {
    
    try { 
+   
     const {data} = yield call(getAllCartItems);
     console.log("vvvvvvvvvvvv",data?.length);
     yield put(fetchCartItemsSuccess(data?.data));

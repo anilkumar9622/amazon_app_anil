@@ -26,6 +26,7 @@ import EmailPhoneAssistance from './Onboarding/verification/emailPhoneAssistance
 import ResetPassword from './Onboarding/verification/resetPassword'
 import TwoStepVerification from './Onboarding/verification/twoStepVerification'
 import Share from './common/subsidemenu/dash/helper/share'
+import Electronics from './common/subsidemenu/pages/electronics'
 function App() {
 
   const [loader, setLoader] = useState(false)
@@ -79,6 +80,9 @@ axios.interceptors.response.use(function (response) {
     },
     {
       path: "/audible", element: <Audible />
+    },
+    {
+      path: "/electronics", element: <Electronics />
     },
     {
       path: "/primeVideo", element: <PrimeVideo />

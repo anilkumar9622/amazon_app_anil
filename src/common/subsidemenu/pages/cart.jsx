@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export default function Cart() {
   const {state} = useLocation();
-  const { items }  = useSelector((state)=> state.Cart);
+  const { items }  = useSelector((state)=> state.cart);
   
   return (
     <>
