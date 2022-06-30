@@ -1,6 +1,7 @@
 import { Checkbox, Input } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Ripples from 'react-ripples'
 
 export default function EmailPhoneAssistance() {
     const navi = useNavigate()
@@ -37,15 +38,16 @@ export default function EmailPhoneAssistance() {
                             {/* {emailPhone.emailphone.isValid && <small style={{ color: "red" }}> <i>enter valid email or phone</i> </small>} */}
                         </div>
                         {/* <Checkbox >Don't ask for codes on this device</Checkbox> */}
-                        <button  
+                   <Ripples>    <button  
                             // onClick={onway}
                             onClick={handleClick}
                             style={{
                                 height: "2.5em",
+                                width: "50em",
                                 background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: "1px solid #c89411"
                             }}
                         >Continue
-                        </button>
+                        </button></Ripples> 
                         
                     </div>
                 </div>

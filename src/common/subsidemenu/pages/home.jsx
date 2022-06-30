@@ -88,8 +88,8 @@ console.log(data1, data2, data3)
                           <div style={{ width: '50%', height: 'auto', margin: '', display: 'flex', flexDirection: 'column' }} >
                             <a >  <img style={{ width: '130px', height: '100px', maxHeight: '100%' }} onClick={()=>{navi('/addcart',{state: v})}}
                             src={v.img1} alt="img" /></a>
-                            {/* {state.password.value} */}
-                            <h5 >{v.disc1}</h5>
+                    
+                             <h5 >{v.disc1}</h5>
                             <a >  <img style={{ width: '130px', height: '100px', maxHeight: '100%', }} onClick={()=>{navi('/addcart',{state: v})}}
                              src={v.img3} alt="img" /></a>
                             <h5 >{v.disc3}</h5>
@@ -108,9 +108,9 @@ console.log(data1, data2, data3)
                       </Card>
                     </>)
               })}
-            </div>
+            </div> 
             {/* <----------------------> */}
-            <div style={{ display: 'flex', flexDirection: 'row', gap: "0px", justifySelf: 'self-end', gap: '' }}>
+             <div style={{ display: 'flex', flexDirection: 'row', gap: "0px", justifySelf: 'self-end', gap: '' }}>
               {data2.map((v, id) => {
                 if (id < 2)
                   return (
@@ -132,7 +132,7 @@ console.log(data1, data2, data3)
                       </Card>
                     </>)
               })}
-            </div>
+            </div> 
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: "0px", justifySelf: 'self-end', gap: '' }}>
               <Card bordered={false} style={{
@@ -162,9 +162,10 @@ console.log(data1, data2, data3)
                   </div>
                 </Card>
               </div>
+              </div>
               {/* <---------------------------------> */}
 
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '30px', margin: '14px -645px' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: '30px', margin: '450px -970px' }}>
                 {data1.map((v, id) => {
                   if (id > 2)
                     return (
@@ -194,7 +195,7 @@ console.log(data1, data2, data3)
 
 
               {/* <-------------------------------> */}
-              <div id='cardcarousel' style={{ background: 'white', display: 'flex', flexDirection: 'row', gap: '30px', margin: '20px -980px 0px -980px', minHeight: '380px', width: '1315px', position: 'relative' }}>
+               <div id='cardcarousel' style={{ background: 'white', display: 'flex', flexDirection: 'row', gap: '30px', margin: '880px -200px 0px -348px', minHeight: '380px', width: '1315px', position: 'relative' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', maxHeight: '364px', minWidth: '135px', margin: '10px 20px', }}>
                   <div style={{ display: 'flex', flexDirection: 'row', gap: '26px' }} >
                     <h2 style={{ fontWeight: '660', fontSize: '28px' }}>Blockbuster Deals to start shopping</h2><p style={{ margin: '13px 0px', fontSize: '16px', color: 'darkgreen', fontWeight: '500' }}>See all deals</p></div>
@@ -217,9 +218,9 @@ console.log(data1, data2, data3)
                 </div>
                 <Button onClick={slideRight1} style={{border:'2px solid black', opacity: '0.5', backgroundColor: 'white', minHeight: '104px', minWidth: '47px', cursor: 'pointer', right: '0', cursor: 'pointer', position: 'absolute', margin: '130px 20px',fontSize: '20px', color:'black', fontWeight:'500' }}>
                   <RightOutlined style={{ fontSize: '22px', color:'black', fontWeight:'700' }} /></Button>
-              </div>
+              </div> 
               {/* <-----------------------------> */}
-              <div id='cardcarousel' style={{ background: 'white', display: 'flex', flexDirection: 'row', gap: '30px', margin: '20px -980px 0px -980px', minHeight: '380px', width: '1315px', position: 'relative' }}>
+               <div id='cardcarousel' style={{ background: 'white', display: 'flex', flexDirection: 'row', gap: '30px', margin: '1290px 0px 0px -1115px', minHeight: '380px', width: '1315px', position: 'relative' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', maxHeight: '364px', minWidth: '135px', margin: '10px 20px', }}>
                   <div style={{ display: 'flex', flexDirection: 'row', gap: '26px' }} >
                     <h2 style={{ fontWeight: '660', fontSize: '28px' }}>Up to 40% off | Refurbished activity trackers</h2><p style={{ margin: '13px 0px', fontSize: '16px', color: 'darkgreen', fontWeight: '500' }}>See more</p></div>
@@ -243,18 +244,18 @@ console.log(data1, data2, data3)
                 <Button onClick={slideRight2} style={{border:'2px solid black', opacity: '0.5', backgroundColor: 'white', minHeight: '104px', minWidth: '47px', cursor: 'pointer', right: '0', cursor: 'pointer', position: 'absolute', margin: '130px 20px',fontSize: '20px', color:'black', fontWeight:'500' }}>
                   <RightOutlined style={{ fontSize: '22px', color:'black', fontWeight:'700' }} /></Button>
               </div>            
-              <div style={{margin:'20px -800px'}}><img src='https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg' alt='img' /></div>
+              <div style={{margin:'1700px -1120px'}}><img src='https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg' alt='img' /></div>
              
-              <div style={{ display: 'flex', gap: "333px", justifySelf: '',margin:'10px -640px'}}>
+                <div style={{ display: 'flex', flexDirection:'row', gap: "30px", justifySelf: '',margin:'1980px -50px'}}>
               {data2.map((v, id) => {
                 if (id > 2)
                   return (
                     <>
-                    <div style={{gap:'20px', margin:'0px 20px 0px -330px '}}>
+                    <div style={{gap:'80px', }}>
                       <Card bordered={false} style={{
                         display: 'flex',
                         height: '420px', width: '307px', marginTop: '0px',
-                        margin:'0px 0px', gap: '20px', justifyContent: 'space-between', 
+                        margin:'0px 0px', gap: '80px', justifyContent: 'space-between', 
                       }}  >
 
                         <h2 style={{ fontWeight: '660', fontSize: '20px' }}>{v.title}</h2>
@@ -268,8 +269,8 @@ console.log(data1, data2, data3)
                       </Card></div>
                     </>)
               })}
-            </div>
-             </div>
+            </div>   
+             {/* </div> */}
           </div>
         </div>
         <div style={{ position: '' }}>

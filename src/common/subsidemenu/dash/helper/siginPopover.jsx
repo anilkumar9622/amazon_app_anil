@@ -1,26 +1,48 @@
 import React, { useState } from 'react';
 import './Style.css'
-import { Button, Popover, Tooltip } from 'antd';
-import { Content } from 'antd/lib/layout/layout';
+import {  Popover } from 'antd';
+// import { Content } from 'antd/lib/layout/layout';
 import './subheader.css'
 import jwt_decode from 'jwt-decode';
+import { useLocation } from 'react-router-dom';
 
 export default function SigninPopover() {
+  const {state} = useLocation([]);
+  const[user, setUser] = useState("signin");
+  // let user1 = state.password.value;
+  // setUser(user1);
+  console.log("aaaaaaaaaaaaaa",state);
 
-  const[user, setUser] = useState('Signin');
-  const username = () => {
-     setUser(user(decoded.useremail.name))
-  } 
-
-  var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyZW1haWwiOnsiX2lkIjoiNjI2YjZmOTlhZmRmNjZiYTliMzU1OTRmIiwibmFtZSI6ImthcmFuIiwicGhvbmUiOiI3NjY3ODY4MjcwIiwiZW1haWwiOiJha3VtYXI3QGtsb3VkcmFjLmNvbSIsInBhc3N3b3JkIjoiMTIzNDU2IiwiX192IjowfSwiaWF0IjoxNjUyNDIyNDI5fQ.0bnwWRaTXvVpeMvCMR4g7aURCZA5dTAO9KWN9wP4pdI";
+    const token = sessionStorage.getItem("token");
+    try{
   var decoded = jwt_decode(token);
+    }catch(err){
+}
+  // if (token !== "undefined") {
+  //   // Set auth token header auth
+  //   setAuthToken(token);
+  //   // Decode token and get user info and exp
+  
+  // }
+
   // console.log('token>>>>', decoded);
 
-  const logout = () => {
-    localStorage.clear();
-    window.location.href = '/';
-    console.log('>>>>>>>>>>>>',logout)
-  }
+  // const username = () => { decoded.useremail.name} 
+
+  // const logout = () => {
+  //   sessionStorage.clear();
+  //   window.location.href = '/';
+  //   console.log('>>>>>>>>>>>>logout',logout)
+  // }
+  // const logout = () => {
+  //   axios.get(`${BASE_URL}/logout`).then(response => {
+  //     if (response.status === 200) {
+  //       props.history.push("/login");
+  //     } else {
+  //       alert('Log Out Failed')
+  //     }
+  //   });
+  // };
 
   const text1 = (
     <div style={{ width: "100%", display: "grid", marginTop: '10px' }}>
@@ -36,7 +58,7 @@ export default function SigninPopover() {
   const text2 = (
     <div style={{ width: "150px", display: "grid" }}>
       <button href='/signin1' style={{ placeSelf: "center", width: "8em", height: "36px", marginTop: '10px', background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: '1px solid #c89411' }} >
-        <a id='over' href='/signin1'>  Sign in</a>
+        <a id='over' href='/signin1' >  Sign in</a>
       </button>
       <span style={{ placeSelf: 'center', fontSize: '0.8em', marginTop: '10px', }}>New Customer?
         <a id='over' style={{ color: "blue" }} href="/signup1">&nbsp;Click here</a>
@@ -76,7 +98,7 @@ export default function SigninPopover() {
             <a style={{ color: "#444" }} href='#'>Your Seller Account</a>
             <a style={{ color: "#444" }} href='#'>Manage Your Content and Devices</a>
             <div>
-   <a href="#" onClick={logout}>LOGOUT</a>
+   <a href="" >LOGOUT</a>
 </div>
           </div>
         </div>
@@ -103,7 +125,7 @@ export default function SigninPopover() {
           title={text2}>
           <button style={{ border: 'none', background: "none", width: '45%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
             <a id='over' href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, Signin </span>
+              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello, </span>
               <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white' }}> Account & Lists</span></a>
           </button>
         </Popover>

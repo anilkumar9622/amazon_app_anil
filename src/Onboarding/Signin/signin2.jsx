@@ -4,11 +4,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './signin.css'
 import { username } from '../../common/subsidemenu/dash/helper/siginPopover'
 import Input from '../Signup/custominput';
+import Ripples from 'react-ripples'
+
 
 export default function SignIn2() {
 
     const navi = useNavigate()
     const { state } = useLocation()
+    console.log("fffffffffffff",state);
+
+
+
     const emailPhone = state.emailphone.value
     // const allValues = state.name.value
     const [password, setPassword] = useState({
@@ -29,7 +35,7 @@ export default function SignIn2() {
 
             .then(response => {
                 const res = response.data
-                console.log(">>>>>>>>", res);
+                console.log(">>>>>>>>login", res);
 
                 if (res.token) {
 
@@ -74,14 +80,19 @@ export default function SignIn2() {
                             style={{ height: "2em", border: "1px solid gray" }}></Input>
                         {/* {emailPhone.emailphone.isValid && <small style={{ color: "red" }}> <i>enter valid email or phone</i> </small>} */}
                     </div>
+                    <Ripples>
                     <button
                         onClick={gone}
                         style={{
                             height: "2.5em",
+                            width: "50em",
                             background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: "1px solid #c89411"
                         }}
                     >Continue
                     </button>
+                    </Ripples>
+
+
                 </div>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}><p style={{

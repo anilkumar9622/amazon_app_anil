@@ -1,7 +1,7 @@
-import { call, put, takeEvery, takeLatest, } from 'redux-saga/effects'
+import { call, put, takeLatest, } from 'redux-saga/effects'
 import {addNewItemToCart,addQuantityToCart,getAllCartItems,deleteNewItemToCart} from '../Services/cartService'
 import {FETCH_CART_ITEMS,fetchCartItemsFail,fetchCartItemsSuccess,fetchCartItems,
-   ADD_CART_ITEMS, addCartItemsFail, addCartItemsSuccess,DELETE_CART_ITEMS,deleteCartItemsFail,deleteCartItemsSuccess,
+   ADD_CART_ITEMS, addCartItemsFail, DELETE_CART_ITEMS,deleteCartItemsFail,deleteCartItemsSuccess,
     QUANTITY_CART_ITEMS,quantityCartItemsFail,quantityCartItemsSuccess} from '../Redux/cartReducerCumActions'
 
 
@@ -28,7 +28,7 @@ export function* watchCartItemList() {
 // ADD TO CART
 function* addcartItemsList(payload){
    try{
-      console.log(">##########", payload);
+      console.log("addingcartitems##########", payload);
 
       const data = yield call(addNewItemToCart,payload);
       console.log(">>>>>>>>>", data);
@@ -39,7 +39,10 @@ function* addcartItemsList(payload){
 }
 
 export function* watchAddToCart() {
+   console.log("===---===---====adding to cart")
    yield takeLatest(ADD_CART_ITEMS, addcartItemsList);
+   console.log(" 44 ===---===---====adding to cart")
+
  }
 
 

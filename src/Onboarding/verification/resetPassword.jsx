@@ -1,5 +1,6 @@
 import { Checkbox, Input } from 'antd'
 import React from 'react'
+import Ripples from 'react-ripples'
 
 export default function ResetPassword() {
   return (
@@ -40,15 +41,16 @@ export default function ResetPassword() {
                                 style={{ height: "2em", border: "1px solid gray" }}></Input>
                             {/* {emailPhone.emailphone.isValid && <small style={{ color: "red" }}> <i>enter valid email or phone</i> </small>} */}
                         </div>
-                        <button
+                  <Ripples duration={1600}>     <button
                             // onClick={onway}
                             // onClick={handleClick}
                             style={{
                                 height: "2.5em",
+                                width: "50em",
                                 background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: "1px solid #c89411"
                             }}
                         >Save changes and sign in
-                        </button>
+                        </button></Ripples> 
                        
                     </div>
                 </div>

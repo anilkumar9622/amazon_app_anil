@@ -2,8 +2,10 @@ import React from 'react'
 import Icon, { MenuOutlined } from '@ant-design/icons';
 import Drawer1 from '../../../sidemenu/drawer1';
 import Popover1 from './popover';
+import { Link } from 'react-router-dom';
 
-// import Image3 from '../../image/amazon.png'
+
+// import Image3 from '../../image/Linkmazon.png'
 export default function Header1() {
 
     return ( 
@@ -15,47 +17,47 @@ export default function Header1() {
                 <Drawer1 />
                 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="./echoBulb" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
+                    <Link to="./echoBulb" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
                         Best seller
-                    </a>
+                    </Link>
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="./Popapp1" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
+                    <Link to="./Popapp1" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
                         Mobile
-                    </a>
+                    </Link>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Link to="" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         Customer Service
-                    </a>
+                    </Link>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Link to="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Today's Deals
-                    </a>
+                    </Link>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Link to="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Fashion
-                    </a>
+                    </Link>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="./electronics" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Link  to="./electronics" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Electronics
-                    </a>
+                    </Link>
                 </div><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Link to="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         Prime
-                    </a>
+                    </Link>
                 </div><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Link to="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         New Release
-                    </a>
+                    </Link>
                 </div><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <a href="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Link to="" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Home & Kitchen
-                    </a>
+                    </Link>
                 </div>
             </div>
 

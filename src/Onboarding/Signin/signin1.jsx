@@ -5,6 +5,8 @@ import 'antd/dist/antd.css';
 import { CaretRightOutlined } from '@ant-design/icons';
 import Input from '../Signup/custominput';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import Ripples from 'react-ripples'
+
 const { Panel } = Collapse;
 
 
@@ -38,15 +40,20 @@ export default function Login1() {
                                 inputContent={inputContent}
                                 style={{ height: "2em", border: "1px solid gray" }}></Input>
                             {emailPhone.emailphone.isValid && <small style={{ color: "red" }}> <i>enter valid email or phone</i> </small>}
-                        </div>
-                        <button
+                        </div>  
+
+        
+                    <Ripples>
+                        <button type="button"  during={2000} 
                             onClick={handleClick}
                             style={{
                                 height: "2.5em",
+                                width: '50em',
                                 background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: "1px solid #c89411"
                             }}
                         >Continue
                         </button>
+                        </Ripples>
                         <div style={{ display: "flex", flexWrap: "wrap", width: "100%", heigth: "auto" }}>
                             <p style={{ fontSize: "0.8em", marginTop: '0px' }}>By continuing, you agree to Amazon's <span
                                 style={{ color: "blue" }}>
@@ -92,6 +99,29 @@ export default function Login1() {
                 <a style={{ color: "blue", fontSize: "0.8em" }}> Help  </a>
             </div>
             <div style={{ width: "100%", textAlign: "center", fontSize: "0.8em" }}>© 1996-2022, Amazon.com, Inc. or its affiliates </div>
+          
+          {/* <script type="text/javascript">
+              const buttons = document.querySelectorAll('a'){
+                  buttons.forEach(btn => {
+                      btn.addEventListener('clicks', function(e){
+                          let x = e.clientX - e.target.offsetLeft;
+                          let y = e.clientX - e.target.offsetTop;
+
+                          let ripples = document.createElement('span');
+                          ripples.style.left = x + 'px';
+                          ripples.style.top = y + 'px';
+                          this.appendChild(ripples);
+
+                          setTimeout(() => {
+                              ripples.remove()
+                          },1000)
+
+                      })
+                  })
+              }
+
+          </script> */}
+      
         </>
     )
 }

@@ -130,7 +130,7 @@ export default function Footer() {
                         <a id='over' href='#' style={{ color: 'white' }} class="ex5">Privacy notice</a>
                         <a id='over' href='#' style={{ color: 'white' }} class="ex5">Interest-Based Ads</a>
 
-                        <h4 style={{ color: 'white' }}>@ 19996-2022, Amazone.com,inc. or its affiliates</h4>
+                        <h4 style={{ color: 'white', marginBottom:'36px' }}>@ 1996-2022, Amazone.com,inc. or its affiliates</h4>
                     </div>
                 </div>
            

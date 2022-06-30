@@ -30,8 +30,8 @@ export default function Signup() {
               Message and Data rates may apply.</p>
             <button className='button'>Continue</button>
 
-            <p>Already have an account? <a class='linked' href=''>Sign in</a></p>
-            <p>Buying for work? <a class='linked' href=''>Create a free business account</a></p>
+            <p>Already have an account? <Link class='linked' to=''>Sign in</Link></p>
+            <p>Buying for work? <Link class='linked' to=''>Create a free business account</Link></p>
           </div>
         </div>
       </div>

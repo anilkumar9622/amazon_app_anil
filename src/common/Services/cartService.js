@@ -1,13 +1,13 @@
 
 import  rootService  from "../../services/index";
 import axios from "axios";
-const  { endpoints, postRequest,BASE_URL } = rootService;
+const  { endpoints, BASE_URL } = rootService;
 const { addToCart } = endpoints;
 
-export const addNewItemToCart = async(newItem)=> {
-    console.log(newItem.payload);
+export const addNewItemToCart = async(n)=> {
+    console.log(n.payload,n.type);
 
-    return await axios.post(`${BASE_URL}/addCart`,newItem.payload)
+    return await axios.post(`${BASE_URL}/addCart`,n.payload)
 }
 
 export const getAllCartItems = async () =>{

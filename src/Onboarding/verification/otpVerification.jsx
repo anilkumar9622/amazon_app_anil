@@ -2,7 +2,9 @@ import { CaretRightOutlined } from '@ant-design/icons'
 import { Checkbox, Collapse, Input,  } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import Ripples from 'react-ripples'
 const { Panel } = Collapse;
+
 
 export default function OtpVerification() {
     const navi = useNavigate()
@@ -36,15 +38,16 @@ export default function OtpVerification() {
                                 style={{ height: "2em", border: "1px solid gray" }}></Input>
                             {/* {emailPhone.emailphone.isValid && <small style={{ color: "red" }}> <i>enter valid email or phone</i> </small>} */}
                         </div>
-                        <button
+                <Ripples>        <button
                             // onClick={onway}
                             onClick={handleClick}
                             style={{
                                 height: "2.5em",
+                                width: "50em",
                                 background: "linear-gradient(to bottom,#f8e3ad,#EEBA37)", border: "1px solid #c89411"
                             }}
                         >Continue
-                        </button>
+                        </button></Ripples>
                         <div style={{  width: "100%", heigth: "auto", alignItems:'center' }}>
                             <p style={{ fontSize: "1em", marginTop: '10px', color: 'blue', alignItems:'center' }}>
                                 Resend OTP

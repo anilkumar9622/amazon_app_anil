@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import './drawer1.css';
 import Data from '../subsidemenu/data.json'
@@ -6,6 +6,8 @@ import { Drawer, Button, Menu } from 'antd';
 import Icon, { UserOutlined, RightOutlined, ArrowLeftOutlined, MenuOutlined } from '@ant-design/icons';
 import SubMenu from 'antd/lib/menu/SubMenu';
 import Amazon from './amazon.jpg'
+import jwt_decode from 'jwt-decode';
+
 // import Header1 from '../subsidemenu/dash/helper/header1';
 
 export default function Drawer1() {
@@ -13,7 +15,16 @@ export default function Drawer1() {
   const [id, setId] = useState('')
   const [openDrawer, setopenDrawer] = useState(false)
   const [openSubDrawer, setopenSubDrawer] = useState(null)
+  const [user, setUser] = useState('Signin');
 
+ useEffect(() => {
+        if (!sessionStorage.getItem('token')) {
+            setUser(false);
+        } else {
+            setUser(true);
+        }
+
+    }, [])
 
   const showDrawer = () => {
     setopenDrawer(!openDrawer);
@@ -21,6 +32,13 @@ export default function Drawer1() {
   const openSidemenu = () => {
     setopenSubDrawer(!openSubDrawer)
   }
+
+  // const token = sessionStorage.getItem("token");
+  //   try{
+  // var decoded = jwt_decode(token);
+  //   }catch(err){
+
+  //   }
 
   return (
     <>
@@ -38,7 +56,7 @@ export default function Drawer1() {
         visible={openDrawer}>
       
         <div class='header' style={{ background: '#232f3e', width: '365px', height: '50px', position: 'fixed' }} >
-          <h2 style={{ padding: '8px 0px 0px 35px', margin: '0px', color: 'white', alignItem: 'center', gap: '5px', fontWeight: '700' }} >{<UserOutlined />}  Hello, Sign in</h2>
+          <h2 style={{ padding: '8px 0px 0px 35px', margin: '0px', color: 'white', alignItem: 'center', gap: '5px', fontWeight: '700' }} >{<UserOutlined />}  Hello, </h2>
         </div>
         <div class='sidemenu' style={{ position: 'relative' }} >
           <div style={{

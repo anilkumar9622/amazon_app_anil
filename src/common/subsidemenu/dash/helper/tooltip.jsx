@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import './signInpopover.css'
 import { Button, Popover, Tooltip } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
+import { Link } from 'react-router-dom';
 export default function Tooltip1() {
 
   
@@ -12,7 +13,7 @@ export default function Tooltip1() {
         Sign in
       </button>
       <span style={{ placeSelf: 'center', fontSize: '0.8em' }}>New Customer?
-        <a style={{ color: "blue" }} href="#">&nbsp;Click here</a>
+        <Link style={{ color: "blue" }} to="#">&nbsp;Click here</Link>
       </span>
     </div>
 
