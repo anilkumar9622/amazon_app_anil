@@ -227,7 +227,7 @@ const text1 = (
           title={text2}> */}
           <button style={{ border: 'none', background: "none", width: '45%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center' }}>
             <a id='over' href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white', fontWeight:'normal',fontFamily:'' ,paddingRight:'45px' }}>Hello, {decoded.user.name}  </span>
+              <span style={{ fontSize: '12px', marginTop: '0px', color: 'white', fontWeight:'normal',fontFamily:'' ,paddingRight:'45px' }}>Hello, {decoded?.user.name}  </span>
               <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop:'-5px' }}> Account & Lists</span></a>
           </button>
         {/* </Popover> */}

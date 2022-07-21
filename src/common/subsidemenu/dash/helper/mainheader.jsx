@@ -287,7 +287,7 @@ export default function Mainheader() {
                     </div>}
                   {!deliver &&  <div  style={{ width: '65%', height: '100%', color: 'black', color: 'white', display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column' }}>
                         <a onClick={() => { settoggle2(!toggle2) }} class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '80%',gap:'-50px' }}>
-                          <div style={{}}> <div  style={{ fontSize: '12px', marginTop: '0px', color: 'lightgrey', paddingRight:'30px', marginTop:"0px" }}>Deliver to {decoded.user.name} </div>
+                          <div style={{}}> <div  style={{ fontSize: '12px', marginTop: '0px', color: 'lightgrey', paddingRight:'30px', marginTop:"0px" }}>Deliver to {decoded?.user.name} </div>
                             <div style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop: '-5px' }}><EnvironmentOutlined style={{fontSize:'16px'}} /> Select your address</div></div> 
                         </a >
                     </div>}
