@@ -6,14 +6,20 @@ body{
 a{
   color: black ;
 }
+#orgHov:hover{
+  color:orange !important;
+  text-decoration: underline !important;
+  background: none !important;
+  
+}
 #over:hover{
   background: none !important;
   color: white !important
 }
-#pop:hover{
-  background: none !important;
-  color: blue !important
-}
+/* #pop:hover{
+  
+  
+} */
 .ant-list-split .ant-list-item {
   border-bottom: none !important;
 }

@@ -14,33 +14,30 @@ export default function Cardshow() {
   const [cartData, setCartData] = useState([])
   const [saveForLater, setSaveForLater] = useState(false)
   const [itemsValue, setItemsValue] = useState(0)
-
+console.log("ddddddddddddddddddd",cartData)
   var handleSave = (val) => {
     setSaveForLater(deleteItem(val._id)) 
   }
-
   useEffect( () =>{
-    ;
+    getList()
   },[])
  
 const dispatch = useDispatch();
 const { items }  = useSelector((state)=> state.cart);
 
+  
+  const getList=()=> {
+      cardApi5().then(res => { setCartData(res.data.data) 
+      // console.log(".....",setCartData)
+    })
+    }
+     
 
-  useEffect( () => {
-    gitList()
-
-  }, [])
-  console.log(cartData);
-  const gitList=()=> {
-    cardApi5().then(res => { setCartData(res.data.data) })
-
+  const deleteItem = async (_id, e) => {
+    dispatch(deleteCartItems(_id))
+    getList();
   }
-  console.log(cartData);
-  const deleteItem = async (id) => {
-    dispatch(deleteCartItems(id))
-    gitList()
-  }
+
   function onChange(e) {
     console.log(`checked = ${e.target.checked}`);
   }
@@ -52,7 +49,7 @@ const { items }  = useSelector((state)=> state.cart);
       setItemsValue( value)
     console.log('add',itemsValue);
   }
-console.log('>>>>>>',Option);
+// console.log('>>>>>>',Option);
     var totalAmount = 0;
     
   //  var saveForLater = () => {

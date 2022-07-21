@@ -3,7 +3,7 @@ import Footer from '../dash/helper/footer'
 import Header1 from '../dash/helper/header1'
 import HeaderMain from '../dash/helper/mainheader'
 import { Button } from 'antd'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { CheckCircleFilled } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -28,8 +28,8 @@ export default function Cart() {
 
           <div style={{ width: '350px', height: '200px', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
             <p><b>Cart subtotal ({items?.length} items):    {state.price}</b></p>
-            <Button href='./signin1' style={{ fontWeight: '', width: '280px', height: '34px', borderRadius: '5px', background: '#face2f', marginBottom: '10px' }}>Proceed to Buy</Button>
-            <Button href='./cartShow' style={{ fontWeight: '', width: '280px', height: '34px', borderRadius: '5px', background: '', marginBottom: '20px', boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}>Go to Cart</Button>
+           <Link to='/signin1'> <Button  style={{ fontWeight: '', width: '280px', height: '34px', borderRadius: '5px', background: '#face2f', marginBottom: '10px' }}>Proceed to Buy</Button></Link>
+           <Link to='/cartShow'> <Button  style={{ fontWeight: '', width: '280px', height: '34px', borderRadius: '5px', background: '', marginBottom: '20px', boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}>Go to Cart</Button></Link>
             <p>For best experience signin to your account</p>
           </div>
         </div>

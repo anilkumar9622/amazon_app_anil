@@ -19,10 +19,12 @@ export const cardApi4 = async () =>{
 }
 
 export const cardApi5 = async () =>{
-    return await axios.get(`${BASE_URL}/cartview`)
+    const token = sessionStorage.getItem('token');
+    return await axios.get(`${BASE_URL}/cartview`, { headers: {"w_auth" : `${token}`} } )
 }
-export const cardApi6 = async (id) =>{
-    return await axios.delete(`${BASE_URL}/deleteitem/${id}`)
+export const cardApi6 = async () =>{
+    const token = sessionStorage.getItem('token');
+    return await axios.delete(`${BASE_URL}/removeItem`, { headers: {"w_auth" : `${token}`} } )
 }
 export const cardApi7 = async (id) =>{
     return await axios.patch(`${BASE_URL}/quantity/${id}`)

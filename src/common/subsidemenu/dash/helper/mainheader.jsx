@@ -10,28 +10,52 @@ import { DownOutlined } from '@ant-design/icons';
 import { Cascader } from 'antd';
 import Popover from './popover';
 import SigninPopover from './siginPopover';
+import SigninPopAuth from './signinPopAuth';
 import Tooltip1 from './tooltip';
 import LanguagePopover from './languagePopover';
 import EchoBulb from '../../pages/echoBulb';
 import { useSelector, useDispatch } from 'react-redux';
 import Popover1 from './popover';
 // import CardView from '../../../Cart/cartView';
-import { fetchCartItems } from '../../../Redux/cartReducerCumActions';
+import { cart, fetchCartItems } from '../../../Redux/cartReducerCumActions';
 import ModalView from './popmodal';
 import { Link } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+
 export default function Mainheader() {
     
-
+    const [deliver, setDeliver] = useState(true)
     const [toggle, settoggle] = useState(null)
     const [toggle2, settoggle2] = useState(null)
-
-    const [cartValue, setcartValue] = useState(0)
-  
+    const [cartValue, setCartValue] = useState(0)
+  console.log("DDDDvalue",cartValue)
     const { items }  = useSelector((state)=> state.cart);
+    
+
     const dispatch = useDispatch();
     useEffect(() => {
-          dispatch(fetchCartItems())
+        dispatch(fetchCartItems())
+         
     }, [])
+    useEffect(() => {
+        setCartValue(items?.length)
+        }, [items?.length])
+
+    useEffect(() => {
+      setCartValue(cartValue)
+         }, [cartValue])
+   
+         const token = sessionStorage.getItem("userCredential");
+    try{
+  var decoded = jwt_decode(token);
+  }catch(err){
+}
+
+        useEffect(()=>{
+      const token = sessionStorage.getItem("token");
+
+  setDeliver(!token)
+}) 
     
   
  const { Search } = Input;
@@ -239,12 +263,13 @@ export default function Mainheader() {
         {/* <button onClick={() => { settoggle(!toggle) }}>popover</button> */}
                       <Popover1 toggle={toggle} />
                       <ModalView toggle2 = {toggle2}/>
-                      {/* <LanguagePopover toggle={toggle} /> */}
+
+                      {/* <LanguagePopover toggle3={toggle3} /> */}
         
             <div style={{
                 backgroundColor: '#131921',
                 position: "sticky", top: 0,
-                display: 'flex', width: '100%', height: '60px', justifyContent: 'center', flexWrap: 'wrap',
+                display: 'flex', width: '100%', height: '60px', justifyContent: 'center', flexWrap: 'wrap', paddingRight:'0px'
             }}>
 
                 <div style={{ width: '25%', display: 'flex' }}>
@@ -253,16 +278,24 @@ export default function Mainheader() {
                             <img style={{margin:'0px 10px'}} className='header_logo' src='https://pngshare.com/wp-content/uploads/2021/06/Amazon-Logo-Black-Background-11.png' />
                             </Link >
                     </div>
-                    <div  style={{ width: '65%', height: '100%', color: 'black', color: 'white', display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column' }}>
+                    {/* <------------------------------------ */}
+                  {deliver &&  <div  style={{ width: '65%', height: '100%', color: 'black', color: 'white', display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column' }}>
                         <a onClick={() => { settoggle2(!toggle2) }} class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '80%',gap:'-30px' }}>
-                            <span  style={{ fontSize: '12px', marginTop: '0px', color: 'white' }}>Hello</span>
-                            <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop: '-1px' }}><EnvironmentOutlined /> Select your address</span>
+                            <span  style={{ fontSize: '12px', marginTop: '0px',paddingRight:'80px', color: 'white' }}>Hello</span>
+                            <span style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop: '-5px' }}><EnvironmentOutlined style={{fontSize:'16px'}} /> Select your address</span>
                         </a >
-                    </div>
+                    </div>}
+                  {!deliver &&  <div  style={{ width: '65%', height: '100%', color: 'black', color: 'white', display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column' }}>
+                        <a onClick={() => { settoggle2(!toggle2) }} class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '80%',gap:'-50px' }}>
+                          <div style={{}}> <div  style={{ fontSize: '12px', marginTop: '0px', color: 'lightgrey', paddingRight:'30px', marginTop:"0px" }}>Deliver to {decoded.user.name} </div>
+                            <div style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '14px', color: 'white', marginTop: '-5px' }}><EnvironmentOutlined style={{fontSize:'16px'}} /> Select your address</div></div> 
+                        </a >
+                    </div>}
+                    {/* <--------------------------------------------> */}
                 </div>
 
                 <div style={{ width: '45%', display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <div  style={{ width: '110%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div  style={{ width: '105%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
                         <Search
                             addonBefore={
                                 <Dropdown overlay={''} trigger={['click']} visible={cartValue}  >
@@ -284,23 +317,24 @@ export default function Mainheader() {
                     </div>
                 </div>
 
-                <div style={{ width: '30%', display: 'flex', paddingLeft: '50px' }}>
+                <div style={{ width: '30%', display: 'flex', paddingLeft: '0px',  }}>
 
-                    <LanguagePopover onMouseover={() => { settoggle(!toggle) }}/>
+                    <LanguagePopover toggle={toggle} />
                     <SigninPopover />
+                    {/* <SigninPopAuth /> */}
 
-                    <div style={{ width: '20%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center',  }}>
-                        <a  to="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column', height: '85%', width: '90%' }}>
-                            <span style={{ fontSize: '14px', color: 'white' }}>return &</span>
-                                <span style={{ fontFamily: 'inherit', fontSize: '14px', color: 'white', fontWeight: '750' }}> Orders</span></a >
+                    <div style={{ width: '20%', display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center', paddingRight:'0px'  }}>
+                        <a  to="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',marginBottom:'2px', height: '85%', width: '90%' }}>
+                            <span style={{ fontSize: '12px', color: 'white', paddingRight:'25px' }}>Return </span>
+                                <span style={{ fontFamily: 'inherit', fontSize: '14px', color: 'white', fontWeight: '750', marginTop:'-5px' }}>& Orders</span></a >
                     </div>
-                    <div style={{ width: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
-                        <Link  to="./cartShow" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', flexDirection: 'column', height: '85%', width: '80%' }}>
-                            <div  style={{ position: 'absolute', bottom: '35%' }}><h2 style={{ color: 'orange', fontSize: '1.5vw', margin: '2px 5px 0px 0px' }}>{items?.length }</h2></div>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 25 24" fill="white" style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '1.8vw', transform:'rotateY(180deg)', marginRight:'10px'}} ><path d="M10 
+                    <div style={{ width: '28%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative', paddingRight:'16px' }}>
+                        <Link  to="/cartShow" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', flexDirection: 'column', height: '85%', width: '80%' }}>
+                            <div  style={{ position: 'absolute', bottom: '35%' }}><h2 style={{ color: 'orange', fontSize: '1.3vw', margin: '2px 5px 0px 0px' }}>{cartValue}</h2></div>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 25 24" fill="white" style={{ fontFamily: 'inherit', fontWeight: '750', fontSize: '1.8vw', transform:'rotateY(180deg)', marginRight:'10px'}} ><path d="M10 
     19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z" />
                             </svg>
-                            {/* <p style={{color:'white', margin:'10px 0px 0px 0px'}}><b>Cart</b></p> */}
+                            <p style={{color:'white', margin:'25px 0px 0px 45px', position:'absolute'}}><b>Cart</b></p>
                         </Link >
                     </div>
                 </div>

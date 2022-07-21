@@ -5,12 +5,16 @@ import { Content } from 'antd/lib/layout/layout';
 import './subheader.css'
 import { CaretDownOutlined } from '@ant-design/icons';
 import Popover1 from './popover';
-export default function LanguagePopover(props) {
-  const [showPopover, setshowPopover] = useState(false)
+import PopOver from './popover2'
+import PopSignin from './popSignin';
 
-  useEffect(() => {
-     props.toggle != null && setshowPopover(!showPopover)
-  }, [props.toggle])
+export default function LanguagePopover() {
+  // const [toggl, settoggl] = useState(false)
+
+  // console.log("/////////",toggl)
+
+
+
 
     // state = {
     //     value: 1,
@@ -23,7 +27,7 @@ export default function LanguagePopover(props) {
     //     });
     //   };
     //   const { value } = this.state;
-  
+
   
   const text1 = (
     <div style={{ width: "100%", display: "grid", marginTop:'10px' }}>
@@ -32,8 +36,10 @@ export default function LanguagePopover(props) {
 
     </div>
 
-  )
+  )   
+
 const content = (<>
+
     <div style={{ width: "100%", display: "grid", marginTop:'5px',marginBottom:'5px', borderBottom:"1px #ddd solid", }}>
 
     <Radio.Group >
@@ -51,6 +57,7 @@ const content = (<>
 
     </Space>
   </Radio.Group></div>
+
   <div style={{marginTop:'10px',display: 'flex', flexDirection: 'row'}}>
   <img className='header_flag' style={{ height: '2vh', width: '1.5vw', display: 'flex', flexDirection: 'row', marginTop: '5px' }} src='https://flagicons.lipis.dev/flags/4x3/in.svg' />
 
@@ -59,31 +66,43 @@ const content = (<>
       </div>
       <div>
       <span><p style={{color:'blue'}}>Change Country/Region</p></span></div>
-  
+      
   </>
 )
- 
+
 
   return (
     <>
-    
-      <Popover placement="bottom"
-          style={{position :'relative', top:"-10px"}}
-        trigger='hover'
-        title={text1} content={content}  
-        >
-        
-                    <div style={{ width: '19%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                        <a href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'row', height: '85%', width: '80%', alignItems: 'center', gap: '4px' }}>
+
+{/* <PopSignin toggl={toggl} /> */}
+{/* <Popover1 toggl={toggl} /> */}
+{/* <div onClick={() => { settoggl(!toggl) }} style={{ width: '19%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                        <a  class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'row', height: '85%', width: '80%', alignItems: 'center', gap: '4px' }}>
                             <img className='header_flag' style={{ height: '18px', width: '24px', display: 'flex', flexDirection: 'row', marginTop: '' }} src='https://flagicons.lipis.dev/flags/4x3/in.svg' />
                             <span style={{ display: 'flex', flexDirection: 'row', paddingTop: '10px', color: 'grey' }}><CaretDownOutlined /> </span>  </a>
 
+                    </div> */}
+                    
+
+      <Popover placement="bottom"
+          style={{position :'relative', top:"-10px"}}
+        trigger='hover'
+        title={text1}
+         content={content}  
+        >
+        
+                    <div  style={{ width: '22%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', paddingLeft:'40px' }}>
+                        <a href="" class="ex1" style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'row', height: '85%', width: '80%', alignItems: 'center', gap: '4px' }}>
+                            <img className='header_flag' style={{ height: '16px', width: '22px', display: 'flex', flexDirection: 'row', marginTop: '5px' }} src='https://flagicons.lipis.dev/flags/4x3/in.svg' />
+                            <span style={{ display: 'flex', flexDirection: 'row', paddingTop: '10px', color: 'grey', }}><CaretDownOutlined /> </span>  </a>
+
                     </div>
                     
-                  
+
       </Popover>
     
-    
+      
+
 
     </>
   );

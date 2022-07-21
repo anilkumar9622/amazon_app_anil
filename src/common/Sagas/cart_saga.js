@@ -69,8 +69,8 @@ function* addQuantityItemsList(payload){
 
       const data = yield call(addQuantityToCart,payload);
       console.log(">>>>>>>>>", data);
-      yield put(quantityCartItemsSuccess([]));
-      yield put(fetchCartItems());
+      yield put(quantityCartItemsSuccess());
+      // yield put(fetchCartItems());
         }catch (e) {
            yield put(quantityCartItemsFail(e));
         }

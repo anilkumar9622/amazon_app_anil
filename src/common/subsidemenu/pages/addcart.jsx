@@ -1,11 +1,11 @@
-import axios from 'axios';
-import React, { useEffect } from 'react'
+
+import React, { useEffect, useState } from 'react'
 import HeaderMain from '../dash/helper/mainheader';
 import Footer from '../dash/helper/footer'
 import Subheader2 from '../dash/helper/subheader2'
 import Header1 from '../dash/helper/header1';
-import { Button, Cascader, Checkbox, Dropdown, Menu, Select, Space } from 'antd';
-import { DownOutlined, EnvironmentOutlined, SecurityScanFilled, StarFilled, UploadOutlined, UserOutlined } from '@ant-design/icons';
+import { Button,  Checkbox,  Popover,  Select,  } from 'antd';
+import { EnvironmentOutlined, FacebookFilled, MailFilled, MailOutlined, SecurityScanFilled, StarFilled, TwitterCircleFilled, UploadOutlined, UserOutlined } from '@ant-design/icons';
 import './zoom/magiczoomplus.css'
 import './echo.css'
 import Subcomponent from '../dash/helper/subcomponent';
@@ -17,16 +17,52 @@ export default function Addcart() {
     const navi = useNavigate();
     const {state} = useLocation();
     const dispatch = useDispatch();
+    const [itemQty, setItemQty] = useState(1)
+    
+    const [copied, setCopied] = useState(false);
 
+    const copy = () => {
+      const el = document.createElement("input");
+      el.value = window.location.href;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setCopied(true);
+    }
+  
+    useEffect(()=>{
+        setTimeout(()=>{
+            setCopied(copied)
+        }, 2000)
+        
+    },[copy])
+    // useEffect(()=>{
+        
+    //         setCopied(!copied)
+        
+        
+    // })
+    
+//     return (
+//       <div className="App">
+//         <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button>
+//       </div>
+//     );
+//   }
     const cartadded = async (e, val) => {
-
-        e.preventDefault();
+      e.preventDefault();
+        
+        let n0 = val._id
         let n1 = val.title
         let n2 = val.disc1
         let n3 = val.price
         let n4 = val.img
+        let n5 = val.quantity
+
         
-        const item = { "title": n1, "disc1": n2, "price": n3, "img": n4}
+        const item = {"_id":n0, "title": n1, "disc1": n2, "price": n3, "img": n4, "quantity": n5}
+      
         dispatch(addCartItems(item))
         navi('/cart', {state:val})
     }
@@ -39,11 +75,24 @@ export default function Addcart() {
 
 const { Option } = Select;
 
-var handleChange = (value) => {
+var handleChange = (value,e) => {
   console.log(`selected ${value}`);
-//   dispatch(quantityCartItems(value),{state:value})
-
+  dispatch(quantityCartItems(...value),{state:value})
+  
 }
+// useEffect( () =>{
+//     handleChange()
+//   },[])
+const content = (
+    <div style={{fontSize:'14px', gap:'10px', margin:'0px -10px 0px -10px',width:'136px'}}>
+      <div style={{borderBottom:'1px solid #ddd',paddingBottom:'0px', }}><img style={{width:'25px', paddingBottom:'5px'}} src='https://m.media-amazon.com/images/G/01/share-icons/email-circular.svg' alt='ff'/><Button style={{border:'none'}}>Email</Button></div>
+      <div style={{borderBottom:'1px solid #ddd',paddingBottom:'0px', paddingTop:'5px'}}><img style={{width:'25px', paddingBottom:'5px'}} src='https://m.media-amazon.com/images/G/01/share-icons/pinterest-circular.svg' alt='ff'/><Button style={{border:'none'}} >Pinterest</Button>   </div>
+      <div style={{borderBottom:'1px solid #ddd',paddingBottom:'0px', gap:'30px', justifyContent:'space-around', paddingTop:'5px'}}><img style={{width:'25px', paddingBottom:'5px'}} src='https://m.media-amazon.com/images/G/01/share-icons/facebook-circular.svg' alt='ff'/><Button style={{border:'none'}}>Facebook</Button></div>
+      <div style={{borderBottom:'1px solid #ddd',paddingBottom:'0px',  paddingTop:'5px'}}><img style={{width:'25px',paddingBottom:'5px'}} src='https://m.media-amazon.com/images/G/01/share-icons/twitter-circular.svg' alt='ff'/><Button style={{border:'none'}}>Twitter</Button></div>
+      <div style={{}}><img style={{width:'25px',  paddingTop:'5px', paddingBottom:'0px'}} src='https://m.media-amazon.com/images/G/01/share-icons/link-circular.svg' alt='ff'/><Button style={{border:'none'}} onClick={copy}>{!copied ? "Copy link" : "Link Copied!"}</Button></div>
+    
+    </div>
+  );
 
   return (
    <>
@@ -56,7 +105,12 @@ var handleChange = (value) => {
                     <div style={{ display: 'flex', flexDirection: 'row', height: '100%px' }}>
                         <div style={{ position: 'relative' }}>   <img src={state.img}
                             style={{ height: '220px', width: '220px', alignItems: 'center', marginBottom: '30px', marginTop: '140px', marginLeft: '110px' }} alt='img' />
-                            <div style={{ margin: '30px 350px', padding: '10px', fontSize: '25px', position: 'absolute', display: 'flex', justifyContent: 'end', borderRadius: '50%', border: '1px solid #ddd' }}><UploadOutlined /></div>
+                         
+                           <Popover placement="bottomRight" content={content}  trigger="click">
+                                <div style={{ margin: '30px 350px', padding: '10px', fontSize: '25px', position: 'absolute', display: 'flex',
+                             justifyContent: 'end', borderRadius: '50%', border: '1px solid #ddd' }}><UploadOutlined /></div>
+                            </Popover>
+
                             <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', margin: '50px 20px', gap: '10px' }}>
                                 <img style={{ width: '40px', height: '52px', border: '1px solid black' }} src='https://m.media-amazon.com/images/I/41r4f9QbpaL._SX38_SY50_CR,0,0,38,50_.jpg' alt='a' />
                                 <img style={{ width: '40px', height: '52px', border: '1px solid black' }} src='https://m.media-amazon.com/images/I/41+-ugYrCvL._SX38_SY50_CR,0,0,38,50_.jpg' alt='img' />
@@ -131,7 +185,7 @@ var handleChange = (value) => {
                                 <p>Sold by Trade Online and Fulfilled by Amazon.{state.value}</p>
                                 <p><b>Quantity: </b>
                                         
-                                <Select defaultValue="1" style={{ width: 60 }} 
+                                <Select defaultValue="1" value={state.value}  style={{ width: 60 }} 
                                  onChange={handleChange} >
                                   <Option value="1">1</Option>
                                   <Option value="2">2</Option>

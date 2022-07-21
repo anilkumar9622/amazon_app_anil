@@ -1,6 +1,8 @@
 import  axios from 'axios'
 import endpoints from './endpoint'
 const BASE_URL = 'https://mongodb-amazon.herokuapp.com'
+// const BASE_URL = 'http://localhost:8080'
+
 
 
 

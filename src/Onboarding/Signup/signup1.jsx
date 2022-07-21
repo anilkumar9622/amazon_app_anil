@@ -18,7 +18,7 @@ export default function Signup() {
 
     })
     const postt = () => {
-        const kuchbhi = axios.post("https://mongodb-amazon.herokuapp.com/add", { name: allValues.Name.value, phone: allValues.phone.value, email: allValues.email.value, password: allValues.password.value })
+        const kuchbhi = axios.post("https://mongodb-amazon.herokuapp.com/register", { name: allValues.Name.value, phone: allValues.phone.value, email: allValues.email.value, password: allValues.password.value })
             .then(response => {
                 console.log(response)
                 navi('/signin1', {state:allValues});

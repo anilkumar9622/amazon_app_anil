@@ -15,7 +15,8 @@ export default function SignIn2() {
 
 
 
-    const emailPhone = state.emailphone.value
+    var emailPhone = state.emailphone.value
+    console.log("emailPhone",emailPhone)
     // const allValues = state.name.value
     const [password, setPassword] = useState({
         password: { value: "", isValid: "" }
@@ -23,23 +24,22 @@ export default function SignIn2() {
 
     const inputContent = (key, value, isValid) => {
         setPassword((password) => ({ ...password, [key]: { value, isValid } }))
+        console.log("password",password)
     }
 
     const gone = (e) => {
 
         e.preventDefault();
-        let n1 = emailPhone
-        let n2 = password.password.value
-
-        axios.post("https://mongodb-amazon.herokuapp.com/login", { emailPhone: n1, password: n2 })
+        axios.post("https://mongodb-amazon.herokuapp.com/login", { email: state.emailphone.value, password: password.password.value })
 
             .then(response => {
                 const res = response.data
                 console.log(">>>>>>>>login", res);
 
-                if (res.token) {
+                if (res) {
 
                     sessionStorage.setItem('token', res.token);
+                    sessionStorage.setItem('userCredential', res.userCredential)
                     navi('/', {state:password})
                 }
                 else {

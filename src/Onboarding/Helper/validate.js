@@ -5,10 +5,10 @@ export const checkValidation = (key,value) => {
             if (value.length) {
                 isValid = false
             }
-
+                  
             break;
         case "phone":
-            if(value.length==13 && 
+            if(value.length==10 && 
                 /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(value)){
                 isValid=false
             }

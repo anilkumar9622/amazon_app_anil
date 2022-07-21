@@ -15,15 +15,29 @@ export default function Drawer1() {
   const [id, setId] = useState('')
   const [openDrawer, setopenDrawer] = useState(false)
   const [openSubDrawer, setopenSubDrawer] = useState(null)
-  const [user, setUser] = useState('Signin');
+  const [user, setUser] = useState(true);
 
+//   const token = sessionStorage.getItem("userCredential");
+//   try{
+// var decoded = jwt_decode(token);
+//   }catch(err){
+
+//   }
+  useEffect(() => {
+    setUser(user)
+   const d = "signin"
+      setUser(d)
+  },[])
  useEffect(() => {
-        if (!sessionStorage.getItem('token')) {
-            setUser(false);
-        } else {
-            setUser(true);
-        }
+  const token = sessionStorage.getItem("userCredential");
+  try{
+var decoded = jwt_decode(token);
+  }catch(err){
 
+  }
+  setUser(!user)
+      setUser(decoded?.user.name)
+      
     }, [])
 
   const showDrawer = () => {
@@ -33,12 +47,7 @@ export default function Drawer1() {
     setopenSubDrawer(!openSubDrawer)
   }
 
-  // const token = sessionStorage.getItem("token");
-  //   try{
-  // var decoded = jwt_decode(token);
-  //   }catch(err){
-
-  //   }
+ 
 
   return (
     <>
@@ -56,7 +65,7 @@ export default function Drawer1() {
         visible={openDrawer}>
       
         <div class='header' style={{ background: '#232f3e', width: '365px', height: '50px', position: 'fixed' }} >
-          <h2 style={{ padding: '8px 0px 0px 35px', margin: '0px', color: 'white', alignItem: 'center', gap: '5px', fontWeight: '700' }} >{<UserOutlined />}  Hello, </h2>
+          <h2 style={{ padding: '8px 0px 0px 35px', margin: '0px', color: 'white', alignItem: 'center', gap: '5px', fontWeight: '700' }} >{<UserOutlined />}  Hello, {user} </h2>
         </div>
         <div class='sidemenu' style={{ position: 'relative' }} >
           <div style={{

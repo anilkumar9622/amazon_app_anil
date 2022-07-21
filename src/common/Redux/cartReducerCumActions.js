@@ -1,4 +1,5 @@
 
+
 export const FETCH_CART_ITEMS_FAIL = "FETCH_CART_ITEMS_FAIL";
 export const FETCH_CART_ITEMS_SUCCESS = "FETCH_CART_ITEMS_SUCCESS";
 export const FETCH_CART_ITEMS = "FETCH_CART_ITEMS"
@@ -31,11 +32,24 @@ export const quantityCartItems = (payload) => ({ type: QUANTITY_CART_ITEMS, payl
 export const quantityCartItemsSuccess = (payload) => ({ type: QUANTITY_CART_ITEMS_SUCCESS, payload });
 export const quantityCartItemsFail = (payload = null) => ({ type: QUANTITY_CART_ITEMS_FAIL, payload });
 
+// export const ADD_TO_CART_USER = 'add_to_cart_user';
+
+//     export default function (state = {}, action) {
+//         switch (action.type) {
+            
+//         //     case ADD_TO_CART_USER:
+//                 // return {
+//                 //     ...state, userData: {
+//                 //         ...state.userData,
+//                 //         cart: action.payload
+//                 //     }
+//                 // }
+//         }}
 const initialState = {
         loading: true,
-        items: [],
+        items: 0,
         totalAmount: 0,
-        totalItem: 0,
+        
 }
 
 
@@ -48,18 +62,20 @@ export const cart = (state = initialState, action) => {
                         return {
                                 loading: false,
                                 items: payload,
-                                totalAmount: "1000"
+                                
                         }
+                        
                 case FETCH_CART_ITEMS_FAIL:
                         return {
                                 loading: false,
-                                items: payload
+                                items: payload,
+                                
                         }
                 case FETCH_CART_ITEMS_SUCCESS:
                         return {
                                 loading: true,
-                                items: payload
-,                                totalAmount: "1000"
+                                items: payload,
+                              
 
                         }
                 // --------------------------------
@@ -67,20 +83,22 @@ export const cart = (state = initialState, action) => {
                 case ADD_CART_ITEMS:
                         return {
                                 loading: false,
-                                items: payload
+                                items: payload,
+                                
                         }
                 case ADD_CART_ITEMS_SUCCESS:
                         return {
                                 loading: true,
-                                items: payload
+                                items: payload,
+
                         }
                 case ADD_CART_ITEMS_FAIL:
                         return {
                                 loading: false,
-                                items: payload
+                                items: payload,
+                                
                         }
-                // -------------------------------------------------------
-                //  --------DELETE TO CART -------------------------
+                
 
                 //-------------------------------
                 //-------quantity of cart------------
@@ -107,7 +125,8 @@ export const cart = (state = initialState, action) => {
 }
 
 
-
+// -------------------------------------------------------
+                //  --------DELETE TO CART -------------------------
 
 
 const deletestate = {

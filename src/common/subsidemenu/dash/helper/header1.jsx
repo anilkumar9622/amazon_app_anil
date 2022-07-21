@@ -17,13 +17,13 @@ export default function Header1() {
                 <Drawer1 />
                 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <Link to="./echoBulb" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
+                    <Link to="/echoBulb" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
                         Best seller
                     </Link>
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <Link to="./Popapp1" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
+                    <Link to="/Popapp1" class="ex1" style={{ color: 'white',display: 'flex', justifyContent: 'space-around' }}>
                         Mobile
                     </Link>
                 </div>
@@ -43,7 +43,7 @@ export default function Header1() {
                     </Link>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>
-                    <Link  to="./electronics" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Link  to="/electronics" class="ex1" style={{ color: 'white' ,display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                         Electronics
                     </Link>
                 </div><div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2vw', color: 'white' }}>

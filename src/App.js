@@ -27,14 +27,17 @@ import ResetPassword from './Onboarding/verification/resetPassword'
 import TwoStepVerification from './Onboarding/verification/twoStepVerification'
 import Share from './common/subsidemenu/dash/helper/share'
 import Electronics from './common/subsidemenu/pages/electronics'
+import PopSignin from './common/subsidemenu/dash/helper/popSignin'
 function App() {
 
   const [loader, setLoader] = useState(false)
 
 
-  axios.interceptors.request.use(function (config) {
+  axios.interceptors.request.use(
+    function (config) {
     // Do something before request is sent
-    //  console.log(config);
+    
+    //  console.log(">>>>>>>>>.......",config);
      if(config)  {setLoader(true)}
     // console.log("loader",loader);
     return config;
@@ -65,6 +68,9 @@ axios.interceptors.response.use(function (response) {
     },
     {
       path: "/popapp1", element: <Popapp1 />
+    },
+    {
+      path: "/popSignin", element: <PopSignin />
     },
     {
       path: "/drawer1", element: <Drawer1 />
